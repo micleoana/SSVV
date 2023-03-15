@@ -25,9 +25,9 @@ public class AppTest
     public void setUp(){
         StudentValidator studentValidator = new StudentValidator();
         TemaValidator temaValidator = new TemaValidator();
-        String filenameStudent = "C:\\Users\\16112001\\IdeaProjects\\LabSSVV\\src\\main\\java\\fisiere\\Studenti.xml";
-        String filenameTema = "C:\\Users\\16112001\\IdeaProjects\\LabSSVV\\src\\main\\java\\fisiere\\Teme.xml";
-        String filenameNota = "C:\\Users\\16112001\\IdeaProjects\\LabSSVV\\src\\main\\java\\fisiere\\Note.xml";
+        String filenameStudent = "src/main/java/fisiere/Studenti.xml";
+        String filenameTema = "src/main/java/fisiere/Teme.xml";
+        String filenameNota = "src/main/java/fisiere/Note.xml";
 
 
         StudentXMLRepo studentXMLRepository = new StudentXMLRepo(filenameStudent);
