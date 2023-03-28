@@ -51,4 +51,49 @@ public class AppTest
         Student invalidStudent = new Student("1","Test name",-1000,"test@gmail.com");
         assertThrows(ValidationException.class, ()-> service.addStudent(invalidStudent));
     }
+
+    @Test
+    public void addStudentValidIDTest()
+    {
+        Student validStudent = new Student("1","Test name",2,"test@gmail.com");
+        Student s = service.addStudent(validStudent);
+        assertNotNull(s);
+    }
+
+    @Test
+    public void addStudentInvalidIDTest()
+    {
+        Student invalidStudent = new Student("","Test name",1,"test@gmail.com");
+        assertThrows(ValidationException.class, ()-> service.addStudent(invalidStudent));
+    }
+
+    @Test
+    public void addStudentValidNameTest()
+    {
+        Student validStudent = new Student("1","Test name",2,"test@gmail.com");
+        Student s = service.addStudent(validStudent);
+        assertNotNull(s);
+    }
+
+    @Test
+    public void addStudentInvalidNameTest()
+    {
+        Student invalidStudent = new Student("1","",1,"test@gmail.com");
+        assertThrows(ValidationException.class, ()-> service.addStudent(invalidStudent));
+    }
+
+    @Test
+        public void addStudentValidEmailTest()
+    {
+        Student validStudent = new Student("1","Test name",2,"test@gmail.com");
+        Student s = service.addStudent(validStudent);
+        assertNotNull(s);
+    }
+
+    @Test
+    public void addStudentInvalidEmailTest()
+    {
+        Student invalidStudent = new Student("1","Test name",1,null);
+        assertThrows(ValidationException.class, ()-> service.addStudent(invalidStudent));
+    }
 }
