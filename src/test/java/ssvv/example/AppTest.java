@@ -96,4 +96,17 @@ public class AppTest
         Student invalidStudent = new Student("1","Test name",1,null);
         assertThrows(ValidationException.class, ()-> service.addStudent(invalidStudent));
     }
+
+    @Test
+    public void addStudentValidEmailCharsTest(){
+        Student validStudent = new Student("1","Test name",2,"test@gmail.com");
+        Student s = service.addStudent(validStudent);
+        assertNotNull(s);
+    }
+
+    @Test
+    public void addStudentInvalidEmailCharsTest(){
+        Student invalidStudent = new Student("1","Test name",2,"test");
+        assertThrows(ValidationException.class, ()-> service.addStudent(invalidStudent));
+    }
 }
