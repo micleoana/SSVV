@@ -34,16 +34,34 @@ public class ServiceTest {
     }
 
     @Test
-    public void addAssignmentValidIDTest(){
-        Tema validTema = new Tema("1","Tema test",2,2);
-        Tema t = service.addTema(validTema);
-        assertNotNull(t);
+    public void addAssignmentTest1(){
+        Tema invalidTema = new Tema(null,"Tema test",2,2);
+        assertThrows(ValidationException.class, ()-> service.addTema(invalidTema));
     }
 
     @Test
-    public void addAssignmentInvalidIDTest(){
-        Tema invalidTema = new Tema(null,"Tema test",2,2);
+    public void addAssignmentTest2(){
+        Tema invalidTema = new Tema("1","",2,2);
         assertThrows(ValidationException.class, ()-> service.addTema(invalidTema));
+    }
+
+    @Test
+    public void addAssignmentTest3(){
+        Tema invalidTema = new Tema("1","Tema test",0,2);
+        assertThrows(ValidationException.class, ()-> service.addTema(invalidTema));
+    }
+
+    @Test
+    public void addAssignmentTest4(){
+        Tema invalidTema = new Tema("1","Tema test",2,15);
+        assertThrows(ValidationException.class, ()-> service.addTema(invalidTema));
+    }
+
+    @Test
+    public void addAssignmentTest5(){
+        Tema validTema = new Tema("1","Tema test",2,2);
+        Tema t = service.addTema(validTema);
+        assertNotNull(t);
     }
 
 }
